@@ -45,7 +45,7 @@
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 - `routes/web.php` → Routes
 - `resources/views/` → Blade view files
@@ -54,7 +54,7 @@
 
 ---
 
-## ✨ Features
+## Features
 
 - User registration, login and logout
 - Create, edit and delete own posts
