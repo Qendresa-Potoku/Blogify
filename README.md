@@ -1,11 +1,11 @@
-# Laravel CRUD Project
+# Blogify Project
 
 ## Setup Instructions
 
 1. **Clone the project:**
 
     ```bash
-    git clone https://github.com/Qendresa-Potoku/Laravel_CRUD.git
+    git clone https://github.com/Qendresa-Potoku/Blogify.git
     cd Laravel_CRUD
     ```
 
