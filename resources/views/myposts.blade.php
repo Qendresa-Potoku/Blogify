@@ -9,7 +9,7 @@
         ➕ Create New Post
     </button>
 
-    <div id="createPostModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div id="createPostModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[999]">
         <div class="bg-white p-6 rounded w-96 relative">
             <button onclick="closeCreateModal()" class="absolute top-2 right-2 text-xl">&times;</button>
             <h3 class="text-xl mb-4">Create Post</h3>
@@ -22,17 +22,17 @@
         </div>
     </div>
 
-    <div id="editPostModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div id="editPostModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
         <div class="bg-white p-6 rounded w-96 relative">
             <button onclick="closeEditModal()" class="absolute top-2 right-2 text-xl">&times;</button>
             <h3 class="text-xl mb-4">Edit Post</h3>
             <form id="editPostForm" method="POST" class="space-y-4">
-                @csrf
-                @method('PUT')
-                <input id="editTitle" name="title" type="text" placeholder="Post Title" required class="w-full p-2 border rounded">
-                <textarea id="editContent" name="content" placeholder="Post Content..." required class="w-full p-2 border rounded" rows="5"></textarea>
-                <button type="submit" class="bg-[#5a243c] hover:bg-[#4a1d34] text-white font-bold py-2 px-6 rounded-md w-full">Save Changes</button>
-            </form>
+    @csrf
+    @method('PUT')
+    <input id="editTitle" name="title" type="text" placeholder="Post Title" required class="w-full p-2 border rounded">
+    <textarea id="editContent" name="content" placeholder="Post Content..." required class="w-full p-2 border rounded" rows="5"></textarea>
+    <button type="submit" class="bg-[#5a243c] hover:bg-[#4a1d34] text-white font-bold py-2 px-6 rounded-md w-full">Save Changes</button>
+</form>
         </div>
     </div>
 
@@ -48,9 +48,10 @@
                         Posted: {{ $post->created_at->format('d M Y') }}
                     </div>
                     <div class="flex space-x-2">
-                        <button onclick="openEditModal('{{ $post->id }}', '{{ addslashes($post->title) }}', '{{ addslashes($post->content) }}')" class="bg-[#5a243c] hover:bg-[#4a1d34] text-white text-sm font-bold px-4 py-2 rounded-md w-1/2">
-                            Edit
+                        <button onclick="openEditModal('{{ $post->id }}', `{{ e($post->title) }}`, `{{ e($post->content) }}`)" class="bg-[#5a243c] hover:bg-[#4a1d34] text-white text-sm font-bold px-4 py-2 rounded-md w-1/2">
+                             Edit
                         </button>
+
                         <form action="/delete-post/{{ $post->id }}" method="POST" class="w-1/2">
                             @csrf
                             @method('DELETE')
