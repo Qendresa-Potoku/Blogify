@@ -6,7 +6,7 @@
 
     ```bash
     git clone https://github.com/Qendresa-Potoku/Blogify.git
-    cd Laravel_CRUD
+    cd Blogify
     ```
 
 2. **Install dependencies:**
